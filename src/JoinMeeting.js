@@ -1,47 +1,41 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext, useLayoutEffect } from "react";
 import app from "./firbase";
-import Zoom from "./Zoom";
 import { AuthContext } from "./UserContext";
-function JoinMeeting() {
-  const [meeting, setMeeting] = useState([]);
-  const { user, showMeeting } = useContext(AuthContext);
-  const ref = app.firestore().collection("Meetings");
-  useEffect(() => {
-    ref.onSnapshot((querySnapshot) => {
-      const items = [];
-      querySnapshot.forEach((doc) => {
-        items.push(doc.data());
-      });
-      setMeeting(items);
-    });
-  }, []);
+
+function JoinMeeting(props) {
+  const { showMeeting } = useContext(AuthContext);
+  useLayoutEffect(() => {
+    // document.getElementById("iframe").style.display = "none";
+  });
   return (
-    <div>
-      {meeting.length !== 0 && showMeeting === true ? (
-        <Zoom
-          email={user.email}
-          meetingID={meeting[0].MeetingID}
-          password={meeting[0].password}
-        />
+    <div className="zoom-div">
+      {showMeeting ? (
+        <iframe
+          src={`/CDN/meeting.html?name=${props.email}&mn=${props.meetingNumber}&email=${props.user}&pwd=${props.password}&role=0&lang=en-US&signature=${props.signature}&china=0&apiKey=${props.apiKey}`}
+          className="iframe"
+          id="iframe"
+        ></iframe>
       ) : (
-        ""
-      )}
-      <div>
-        <div>
+        <>
           <h1 style={{ textAlign: "center" }}>
-            Logout and Login again to join the meeting
+            Logout and Login agin to Join Meeting
           </h1>
           <button
             onClick={() => {
+              const iframe = document.getElementById("iframe");
+              {
+                if (iframe) {
+                  iframe.style.display = "none";
+                }
+              }
               app.auth().signOut();
-              document.getElementById("zmmtg-root").style.display = "none";
             }}
             className="logout-btn myBtn"
           >
             Logout
           </button>
-        </div>
-      </div>
+        </>
+      )}
     </div>
   );
 }
