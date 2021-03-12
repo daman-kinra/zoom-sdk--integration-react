@@ -18,7 +18,7 @@ function JoinMeeting(props) {
       ) : (
         <div className="mian_login_cont">
           <div className="center_login_cont">
-            <h1 className="heading">Logout and Login agin to Join Meeting</h1>
+            <h1 className="heading">Logout and Login again to Join Meeting</h1>
             <button
               onClick={() => {
                 const iframe = document.getElementById("iframe");
