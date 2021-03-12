@@ -38,30 +38,26 @@ function Login() {
   return (
     <div className="mian_login_cont">
       <div className="center_login_cont">
-        <div className="left_part_cont">
-          <img src={zoom} alt="" className="img" />
-        </div>
-        <div className="right_part_cont">
-          <form action="" className="form">
-            <input
-              value={name}
-              className="input"
-              type="text"
-              onChange={(e) => setName(e.target.value)}
-              placeholder="ENTER YOUR NAME"
-            />
-            <input
-              value={mobile}
-              className="input"
-              type="number"
-              onChange={(e) => setMobile(e.target.value.substring(0, 10))}
-              placeholder="ENTER YOUR MOBILE"
-            />
-            <button className="myBtn" onClick={login}>
-              Login
-            </button>
-          </form>
-        </div>
+        <img src={zoom} alt="" className="img" />
+        <form action="" className="form">
+          <input
+            value={name}
+            className="input"
+            type="text"
+            onChange={(e) => setName(e.target.value)}
+            placeholder="ENTER YOUR NAME"
+          />
+          <input
+            value={mobile}
+            className="input"
+            type="number"
+            onChange={(e) => setMobile(e.target.value.substring(0, 10))}
+            placeholder="ENTER YOUR MOBILE"
+          />
+          <button className="myBtn" onClick={login}>
+            Login
+          </button>
+        </form>
       </div>
     </div>
   );

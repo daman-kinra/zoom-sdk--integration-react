@@ -6,6 +6,7 @@
   font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
+  transition: 0.4s ease;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -16,12 +17,12 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+.heading {
+  text-align: center;
+  color: rgb(26, 23, 23);
+}
 .logout-btn {
-  position: fixed;
-  z-index: 100000;
-  top: 7%;
-  left: 5%;
-  background-color: white;
+  margin-top: 30px;
 }
 .myBtn {
   cursor: pointer;
@@ -33,6 +34,14 @@ input[type="number"] {
   color: white;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
   max-width: 100px;
+  border: none;
+  outline: 0;
+}
+.myBtn:focus {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
+}
+.input:focus {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.3);
 }
 .mian_login_cont {
   display: flex;
@@ -43,7 +52,10 @@ input[type="number"] {
   background: linear-gradient(to right, #2193b0, #6dd5ed);
 }
 .center_login_cont {
+  padding: 5px;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 70%;
   width: 50%;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
@@ -54,6 +66,7 @@ input[type="number"] {
     rgba(255, 255, 255, 0.7),
     rgba(255, 255, 255, 0.3)
   );
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
   border-right: 1px solid rgba(255, 255, 255, 0.4);
 }
 .right_part_cont {
@@ -70,12 +83,7 @@ input[type="number"] {
   max-height: 10%;
   position: relative;
 }
-.img {
-  position: absolute;
-  top: 100%;
-  width: 40%;
-  max-width: 300px;
-}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -104,4 +112,57 @@ input[type="number"] {
 }
 .zoom-div {
   height: 100vh;
+}
+.img {
+  max-width: 450px;
+  text-align: center;
+}
+@media only screen and (max-width: 1200px) {
+  .center_login_cont {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .center_login_cont {
+    width: 80%;
+  }
+  .input {
+    height: 35px;
+  }
+  .myBtn {
+    height: 35px;
+  }
+  .heading {
+    font-size: 25px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .center_login_cont {
+    width: 90%;
+  }
+  .input {
+    width: 70%;
+  }
+  .img {
+    max-width: 300px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .center_login_cont {
+    width: 90%;
+  }
+  .input {
+    width: 80%;
+  }
+  .heading {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 330px) {
+  .img {
+    max-width: 200px;
+  }
+  .heading {
+    font-size: 17px;
+  }
 }

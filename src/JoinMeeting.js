@@ -16,25 +16,25 @@ function JoinMeeting(props) {
           id="iframe"
         ></iframe>
       ) : (
-        <>
-          <h1 style={{ textAlign: "center" }}>
-            Logout and Login agin to Join Meeting
-          </h1>
-          <button
-            onClick={() => {
-              const iframe = document.getElementById("iframe");
-              {
-                if (iframe) {
-                  iframe.style.display = "none";
+        <div className="mian_login_cont">
+          <div className="center_login_cont">
+            <h1 className="heading">Logout and Login agin to Join Meeting</h1>
+            <button
+              onClick={() => {
+                const iframe = document.getElementById("iframe");
+                {
+                  if (iframe) {
+                    iframe.style.display = "none";
+                  }
                 }
-              }
-              app.auth().signOut();
-            }}
-            className="logout-btn myBtn"
-          >
-            Logout
-          </button>
-        </>
+                app.auth().signOut();
+              }}
+              className="logout-btn myBtn"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );
