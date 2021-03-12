@@ -55,6 +55,12 @@ function Application() {
       }
     });
   }
+  useEffect(() => {
+    console.log(user);
+    if (user) {
+      console.log(user.email);
+    }
+  }, [user]);
   return (
     <>
       {user !== null && signature.length !== 0 ? (
